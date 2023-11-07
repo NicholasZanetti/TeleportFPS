@@ -23,6 +23,13 @@ public class ARScript : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
+
+            Zombie target = hit.transform.GetComponent<Zombie>();
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+            }
+            
         }
     }
 }
